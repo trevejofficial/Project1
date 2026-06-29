@@ -66,6 +66,17 @@ npm run start   # Arranca el servidor compilado (dist)
 npm test        # Pruebas de la lógica de cotización (server)
 ```
 
+En producción, `npm start` sirve **el cliente y la API en un solo puerto**
+(`http://localhost:4000`), por lo que no hace falta proxy ni dos servidores.
+
+## ☁️ Despliegue
+
+Para publicar la app en internet (y abrirla desde el móvil) con backend real,
+consulta **[DEPLOY.md](./DEPLOY.md)**. El repo ya incluye:
+
+- `render.yaml` — Blueprint para desplegar en **Render** con un clic.
+- `Dockerfile` — para **Railway**, **Fly.io** o cualquier hosting de contenedores.
+
 ## ⚙️ Configuración (variables de entorno del servidor)
 
 | Variable            | Por defecto                | Descripción                          |

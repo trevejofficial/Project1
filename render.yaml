@@ -1,0 +1,27 @@
+# Blueprint de Render: despliega CubaRemesas (cliente + API en un solo servicio).
+# Render detecta este archivo al conectar el repositorio y crea el servicio.
+services:
+  - type: web
+    name: cubaremesas
+    runtime: node
+    plan: free
+    region: oregon
+    branch: claude/cuba-remittance-app-7n9yln
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      # Render inyecta PORT automáticamente; el servidor ya lo lee.
+      - key: JWT_SECRET
+        generateValue: true # secreto aleatorio gestionado por Render
+      - key: BASE_RATE_USD_CUP
+        value: "370"
+      # Disco persistente para que la base SQLite sobreviva a reinicios.
+      - key: DB_PATH
+        value: /var/data/cubaremesas.sqlite
+    disk:
+      name: cubaremesas-data
+      mountPath: /var/data
+      sizeGB: 1
