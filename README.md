@@ -1,3 +1,13 @@
+# Proyectos en este repositorio
+
+Este repositorio contiene dos aplicaciones de demostración independientes:
+
+- **🇨🇺 CubaRemesas** — envío de remesas a Cuba (raíz del repo, este README).
+- **🩺 SaludJuntos** — telesalud en español para latinos en EE. UU. (consultas
+  médicas y atención psicológica). Ver [`telehealth/`](./telehealth/README.md).
+
+---
+
 # 🇨🇺 CubaRemesas
 
 Aplicación de envío de **remesas a Cuba**. Permite a un usuario registrarse,

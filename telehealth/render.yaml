@@ -1,0 +1,24 @@
+# Blueprint de Render para SaludJuntos (cliente + API en un solo servicio).
+# La app vive en el subdirectorio telehealth/, por eso rootDir: telehealth.
+services:
+  - type: web
+    name: saludjuntos
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: telehealth
+    branch: claude/cuba-remittance-app-7n9yln
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_PATH
+        value: /var/data/saludjuntos.sqlite
+    disk:
+      name: saludjuntos-data
+      mountPath: /var/data
+      sizeGB: 1
