@@ -1,0 +1,5 @@
+# Los scripts de Windows deben mantener saltos de línea CRLF siempre,
+# incluso al descargar el repo como ZIP. Se tratan como binarios para
+# que Git no los convierta a LF.
+*.bat -text
+*.cmd -text
